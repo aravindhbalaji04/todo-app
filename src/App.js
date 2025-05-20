@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { supabase } from './supabaseClient';
+import Todo from './components/Todo';
+import Login from './components/Login';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const [user, setUser] = useState(null);
 
-export default App;
+    useEffect(() => {
+        const session = supabase.auth.session();
+        setUser(session ? .user ? ? null);
+
+        const { data: authListener } = supabase.auth.onAuthStateChange((_, session) => {
+            setUser(session ? .user ? ? null);
+        });
+
+        return () => {
+            authListener.subscription.unsubscribe();
+        };
+    }, []);
+
+    return ( <
+        div className = "app" >
+        <
+        header className = "app-header" >
+        <
+        h1 > DoItASAP < /h1> < /
+        header > <
+        main className = "app-main" > {
+            user ? < Todo / > : < Login setUser = { setUser }
+            />} < /
+            main > <
+            /div>
+        );
+    }
+
+    export default App;
