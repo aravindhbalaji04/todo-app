@@ -9,10 +9,10 @@ function App() {
 
     useEffect(() => {
         const session = supabase.auth.session();
-        setUser(session ? .user ? ? null);
+        setUser(session?.user ?? null);
 
         const { data: authListener } = supabase.auth.onAuthStateChange((_, session) => {
-            setUser(session ? .user ? ? null);
+            setUser(session?.user ?? null);
         });
 
         return () => {
