@@ -23,17 +23,13 @@ function App() {
 
     return ( <
         div className = "app" >
-        <
-        header className = "app-header" >
-        <
-        h1 > DoItASAP < /h1> < /
-        header > <
-        main className = "app-main" > {
-            user ? < Todo / > : < Login setUser = { setUser }
-            />} < /
-            main > <
-            /div>
-        );
-    }
-
-    export default App;
+            <header className = "app-header" > 
+                <h1> DoItASAP </h1> 
+            </header > 
+            <main className = "app-main" > 
+                {user ? < Todo / > : < Login setUser = {setUser}/>} 
+            </main> 
+        </div>
+    );
+}
+export default App;
