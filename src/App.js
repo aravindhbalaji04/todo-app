@@ -3,6 +3,7 @@ import { supabase } from './supabaseClient';
 import Todo from './components/Todo';
 import Login from './components/Login';
 import './App.css';
+import { FaPlus, FaTrash, FaCheck } from 'react-icons/fa';
 
 function App() {
     const [user, setUser] = useState(null);
